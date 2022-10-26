@@ -5,6 +5,7 @@
 [PACKAGE INCLUSIONS]
 
 Include Basic Screen Effects by Emily Short.
+Release along with an interpreter.
 
 [-----------------------------------------------------------------------------------------------]
 
@@ -103,7 +104,7 @@ The description of the bedsheets is
 [desk tree]
 The desk is an undescribed fixed in place supporter in the apartment.
 The description of the desk is
-"Where you spent countless nights writing. Where you were whenever you said you didn't have time for her, or for anything else. Fat lot of good it did you, spending so much time here. Propped up here is a newspaper clipping, judging you. Propped up next to it, a picture of you two sits, also judging you."
+"Where you spent countless nights writing. Where you were whenever you said you didn't have time for her, or for anything else. Fat lot of good it did you, spending so much time here. [if the player does not have the newspaper clipping]Propped up here is a newspaper clipping, judging you.[end if] [if the player does not have the picture]Propped up next to it, a picture of you two sits, also judging you."
 
 The newspaper clipping is an undescribed object on the desk.
 The description of the newspaper clipping is
@@ -117,20 +118,59 @@ The description of the picture is
 
 The clothes are an undescribed fixed in place container in the apartment.
 The description of the clothes is
-"You haven't been to the laundromat. In case you had forgotten, the piles and piles of clothes around are here to remind you. Thankfully, you can see on one such pile a relatively unwrinkled suit. Heavy emphasis on relatively."
+"You haven't been to the laundromat. In case you had forgotten, the piles and piles of clothes around are here to remind you. [if player does not have relatively unwrinkled suit]Thankfully, you can see on one such pile a relatively unwrinkled suit. Heavy emphasis on relatively.[end if] [if player has relatively unwrinkled suit]Your suitcase is sitting a top some clothes, no longer obscured.[end if]"
 
 The relatively unwrinkled suit is an undescribed wearable object in the clothes.
 The description of the relatively unwrinkled suit is
 "Once upon a time, this was well maintained. But you don't know how to iron. And the last person here who did, well, let's say, isn't coming back any time soon."
 
-[suitcase subtree - TO DO! what are we bringing to the guy?]
+[suitcase subtree]
 
 The suitcase is an undescribed container in the clothes.
 The description of the suitcase is
-"this is where all of your information about the guy is - read the stuff in the suitcase in the car on the way"
+"You've been collecting information on him for a while. This is your last hope. This suitcase has it all - everything that you could get your hands on to try to help you spark a conversation. You need to get in his head. It's your only chance to salvage whatever remains of your career.[line break][line break]Inside is a magazine clipping, a copy of his arrest report, pieces of his manifesto, and a picture of his family."
+
+The magazine clipping is an undescribed object in the suitcase.
+The description of the magazine clipping is
+"The first article exposing the murder. A tabloid, to be specific. It's sensationalized, because of course it is, but, in all honesty, it was a pretty sensational murder. Quadruple homicide - he killed his spouse, and their two children. Seemingly out of nowhere. How could the tabloids not report on it?"
+
+The copy of his arrest record is an undescribed object in the suitcase.
+The description of the copy of his arrest procedurals is
+"Arrest reports are public domain, so getting your hands on this one wasn't particularly challenging. It was a challenging read, though. The police officers all remarked on how he was completely silent throughout the whole arrest. He never resisted, didn't even need to be handcuffed. He just walked out with them willingly. Some said he was even smiling at points. Fucked up."
+
+The piece of his manifesto are an undescribed object in the suitcase.
+The description of the pieces of his manifesto is
+"It isn't the whole thing, and the piece that you do have is sprawling and nonsensical. You pulled it from his personal blog site, where he released it serially, it seems. Blog is long since gone down now - thank God you had the foresight to save what little you did."
+
+The picture of his family is an undescribed object in the suitcase.
+The description of the picture of his family is
+"It's a shot of his spouse and their two children laughing and smiling together on a picnic blanket in some unknown grassy field. Knowing what you know, how things turned out, it's jarring to say the least. One day, he was taking a photo of his family, the next he was killing them in seemingly cold blood. But there has to be more to the story. And you need to find it. Your career depends on it."
 
 [STUDIO APT ACTIONS - TO DO]
 
+Instead of taking the relatively unwrinkled suit:
+	Say "You gingerly pick out the pieces of the suit from the mountain of clothes it was draped over. Steps in the right direction. You discover that hidden underneath is your suitcase. Thank God. You'd be fucked if you lost it.";
+	continue the action;
+
+Instead of taking the suitcase:
+	say "You reach out and grab the suitcase, and as soon as you do, you start to hear a horn honking - how long has that been going on? It's now honking with increasing urgency. [line break][line break]Shit, your taxi is here. Time to move.";
+	continue the action;
+	
+Instead of going south:
+	if player does not have suitcase:
+		say "You feel like shit, which isn't new, but you feel like you're missing something important, which definitely is new.";
+		stop the action;
+	else if player has the suitcase:
+		say "You hustle as quickly as your hangover will allow out the door, down the apartment stairs, and outside to the waiting taxi. The driver looks annoyed - you've clearly left him waiting for a while.";
+		continue the action;
 [-----------------------------------------------------------------------------------------------]
 
-[next - car horn outside after a few turns, get outside and get into taxi, sit for a few turns, get to asylum]
+[TAXI ROOM]
+
+[this is a cheat for now]
+The taxi is a room.
+The taxi is south of the apartment.
+The description of the taxi is
+"this is a test."
+
+[maybe once you're with him, you only have a certain amount of time to talk to him - certain number of turns]
