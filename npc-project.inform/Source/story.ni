@@ -5,17 +5,31 @@
 [PACKAGE INCLUSIONS]
 
 Include Basic Screen Effects by Emily Short.
+Include Conversation Framework by Eric Eve.
+Include Epistemology by Eric Eve.
+
+
+
 Release along with an interpreter.
 
 [-----------------------------------------------------------------------------------------------]
 
 [GLOBAL VARIABLES]
 
+The timeTracker is a number variable.
+The timeTracker is 0.
+
 [-----------------------------------------------------------------------------------------------]
 
 [GLOBAL UPDATE FUNC]
 
-[An every turn rule:]
+An every turn rule:
+	if the player is in the taxi:
+		increase timeTracker by 1;
+		if timeTracker is 6:
+			say "The taxi slows to a stop at what appears to be the gate. You peer out the window and catch a glimpse of what's written on the gate - Sing Sing Correctional Facility. You're here. The taxi driver leans out the window to quickly converse with the guard on duty. The guard nods to the taxi driver, and glances into the back of the car. Suddenly, a white light is shining through the window at you. You squint and recoil. The officer lowers the flashlight and waves the driver on. [line break][line break]You're delivered to the entrance of the facility, where an officer is waiting for you. He beckons for you to leave the taxicab and follow him inside. You follow him silently throughout the halls and down a staircase into a dark, musty room. [line break][line break]'Fifteen minutes. That's it.' he says - gesturing upwards towards the clock above the staircase. He turns and walks back up.";
+			move player to the cell;
+			now timeTracker is 0;
 
 [-----------------------------------------------------------------------------------------------]
 
@@ -146,7 +160,7 @@ The picture of his family is an undescribed object in the suitcase.
 The description of the picture of his family is
 "It's a shot of his spouse and their two children laughing and smiling together on a picnic blanket in some unknown grassy field. Knowing what you know, how things turned out, it's jarring to say the least. One day, he was taking a photo of his family, the next he was killing them in seemingly cold blood. But there has to be more to the story. And you need to find it. Your career depends on it."
 
-[STUDIO APT ACTIONS - TO DO]
+[STUDIO APT ACTIONS - TO COMPLETE]
 
 Instead of taking the relatively unwrinkled suit:
 	Say "You gingerly pick out the pieces of the suit from the mountain of clothes it was draped over. Steps in the right direction. You discover that hidden underneath is your suitcase. Thank God. You'd be fucked if you lost it.";
@@ -161,16 +175,60 @@ Instead of going south:
 		say "You feel like shit, which isn't new, but you feel like you're missing something important, which definitely is new.";
 		stop the action;
 	else if player has the suitcase:
-		say "You hustle as quickly as your hangover will allow out the door, down the apartment stairs, and outside to the waiting taxi. The driver looks annoyed - you've clearly left him waiting for a while.";
+		say "You hustle as quickly as your hangover will allow out the door, down the apartment stairs, and outside to the waiting taxi. You scheduled the taxi weeks in advance for this day, but when push came to shove, you were late. The driver rolls down the window to look at you. He looks annoyed - you've clearly left him waiting for quite a while.";
 		continue the action;
+		
 [-----------------------------------------------------------------------------------------------]
 
 [TAXI ROOM]
 
-[this is a cheat for now]
 The taxi is a room.
 The taxi is south of the apartment.
 The description of the taxi is
-"this is a test."
+"[if unvisited]You groggily push open the door to the taxi and force yourself inside. The taxi driver looks back at you, frowning, before turning around and pushing on the gas. The engine sputters to life, and the taxi starts lurching forward.[end if]It's a regular yellow taxicab, and it's grumbling along towards your destination. The taxi driver is focused on the road, paying absolutely no attention to you. Outside the window, the world blurs. Your suitcase is resting on your knees, and to your left, on the seat next to you is the day's paper. Nice of your driver to leave it for you. Too bad you started off on the wrong foot."
+
+[TAXI OBJECTS]
+
+[suitcase is carried over from last room!]
+
+[taxi driver tree]
+
+The taxi driver is an undescribed man in the taxi.
+The description of the taxi driver is
+"A middle aged man. Hair receding, permanent frown on his face. Do you think he likes what he does? Or do you think he just does it because it's what he does? Maybe he used to love it. Maybe now it's just a shackle for him....Are you staring into a mirror? But you blink your eyes again and it's just the taxi driver again."
+
+[newspaper tree]
+
+The day's paper is an undescribed object in the taxi.
+The description of day's paper is
+"September 5th, 1986. The headline is about a plane hijacking in Karachi. Someone was executed in full view of both people on and off the plane. Forced onto his knees, hands behind his head, gun to his temple. Just...executed. All Rajesh Kumar wanted was to visit Pakistan, and now he wont get to see tomorrow. And things are getting worse, it says. You close your eyes and breathe in slowly. [line break][line break]Truth is more fucked up than fiction. That's why you're going where you are, right?"
+
+[window tree]
+
+The taxi window is an undescribed fixed in place object in the taxi.
+The description of the taxi window is
+"The world melts into swirls of watercolor paint as you drive along. Everything combines, details are obfuscated. Like when you're drunk. Maybe you should just go on drives instead of walks to the liquor store. But, I guess if it were that easy, you'd have made the switch already."
+
+[TAXI ACTIONS]
+
+After saying hello to taxi driver:
+	say "The taxi driver turns around for a moment. His eyes meet yours, and he turns back around. Alright then."
+	
+After quizzing taxi driver about anything:
+	say "The taxi driver doesn't even bother to turn around. You guess he's pretending not to hear you. Message received, taxi driver."
+
+[-----------------------------------------------------------------------------------------------]
+
+[CELL ROOM]
+
+The cell is a room.
+The description of the cell is
+"this is as far as i am now lmao. youre going to talk to the serial killer next i promise"
+
+[-----------------------------------------------------------------------------------------------]
 
 [maybe once you're with him, you only have a certain amount of time to talk to him - certain number of turns]
+
+[TESTS]
+
+test getToTaxi with "examine clothes / wear suit / take suitcase / s" 
