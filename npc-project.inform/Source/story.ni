@@ -1,16 +1,22 @@
-"npc-project" by JD Calvelli
+The story title is "routine".
+The story author is "jd calvelli".
+The story headline is "an interactive paralysis".
+The release number is 1.
+The story creation year is 2022.
 
 [-----------------------------------------------------------------------------------------------]
 
 [PACKAGE INCLUSIONS]
 
 Include Basic Screen Effects by Emily Short.
+Include Basic Help Menu by Emily Short.
 Include Conversation Framework by Eric Eve.
 Include Epistemology by Eric Eve.
+Include Vorple by Juhana Leinonen.
 
+Release along with cover art ("A cartoon tomato.").
 
-
-Release along with an interpreter.
+Release along with the "Vorple" interpreter.
 
 [-----------------------------------------------------------------------------------------------]
 
@@ -30,6 +36,13 @@ An every turn rule:
 			say "The taxi slows to a stop at what appears to be the gate. You peer out the window and catch a glimpse of what's written on the gate - Sing Sing Correctional Facility. You're here. The taxi driver leans out the window to quickly converse with the guard on duty. The guard nods to the taxi driver, and glances into the back of the car. Suddenly, a white light is shining through the window at you. You squint and recoil. The officer lowers the flashlight and waves the driver on. [line break][line break]You're delivered to the entrance of the facility, where an officer is waiting for you. He beckons for you to leave the taxicab and follow him inside. You follow him silently throughout the halls and down a staircase into a dark, musty room. [line break][line break]'Fifteen minutes. That's it.' he says - gesturing upwards towards the clock above the staircase. He turns and walks back up.";
 			move player to the cell;
 			now timeTracker is 0;
+	if the player is in the cell:
+		increase timeTracker by 1;
+		if timeTracker is 2:
+			say "Without moving, the man calls out to you:[line break][line break]'Well, what do you want to ask me? Your time is already running out. Not that it matters to me.'";
+		if timeTracker is 12:
+			say "[line break][line break][line break][line break][line break]'Time's up.'[line break][line break]A voice echoes from the stairwell from which you entered. You follow it back up and out of the cell, where a guard is waiting for you. You walk back through the facility together silently, and out to the entrance, where a taxi is once again waiting for you. This time, you were on time for it. The guard made sure of that.[line break][line break]You enter into the taxi, and once you're settled, the it begins rumbling away towards your apartment. You stare out the taxi window, taking in the city's watercolor design again. Scenes meld and pass, accompanied by the hum of the taxi's wheels against the pavement. It's normalcy remixed. Contorted.[line break][line break]You think to yourself, maybe that's it. The horror is in normalcy, contorted.[line break][line break]Thanks for playing.";
+			end the story;
 
 [-----------------------------------------------------------------------------------------------]
 
@@ -82,7 +95,7 @@ The description of the dishes is
 "Filthy."
 
 [crumpled papers tree]
-The crumpled papers are an undescribed object in the apartment.
+The crumpled papers are an undescribed fixed in place object in the apartment.
 The description of the crumpled papers is
 "Remnants of your latest attempt to write something meaningful. Something fear inducing. Something genuinely scary.[line break][line break]You failed.[line break][line break]As you have been doing with increasing consistency."
 
@@ -118,13 +131,13 @@ The description of the bedsheets is
 [desk tree]
 The desk is an undescribed fixed in place supporter in the apartment.
 The description of the desk is
-"Where you spent countless nights writing. Where you were whenever you said you didn't have time for her, or for anything else. Fat lot of good it did you, spending so much time here. [if the player does not have the newspaper clipping]Propped up here is a newspaper clipping, judging you.[end if] [if the player does not have the picture]Propped up next to it, a picture of you two sits, also judging you."
+"Where you spent countless nights writing. Where you were whenever you said you didn't have time for her, or for anything else. Fat lot of good it did you, spending so much time here. [if the player does not have the newspaper clipping]Propped up here is a newspaper clipping, judging you.[end if] [if the player does not have the picture]Propped up next to it, a polaroid of you two sits, also judging you."
 
 The newspaper clipping is an undescribed object on the desk.
 The description of the newspaper clipping is
 "It's a review of your latest work. Calling it scathing would be an understatement. It's downright destructive. It calls your latest work uninspired, decidedly not scary, aimless, directionless, unrealistic, not grounded in reality...on and on and on. You kept it propped up on your desk to drive you forward. It consumed you instead."
 
-The picture is an undescribed fixed in place object on the desk.
+The polaroid is an undescribed object on the desk.
 The description of the picture is
 "It's of the two of you, at a park together, smiling. You kept it here to remind you of what was really important. It didn't work."
 
@@ -142,11 +155,11 @@ The description of the relatively unwrinkled suit is
 
 The suitcase is an undescribed container in the clothes.
 The description of the suitcase is
-"You've been collecting information on him for a while. This is your last hope. This suitcase has it all - everything that you could get your hands on to try to help you spark a conversation. You need to get in his head. It's your only chance to salvage whatever remains of your career.[line break][line break]Inside is a magazine clipping, a copy of his arrest report, pieces of his manifesto, and a picture of his family."
+"You've been collecting information on him for a while. This is your last hope. This suitcase has it all - everything that you could get your hands on to try to help you spark a conversation. You need to get in his head. It's your only chance to salvage whatever remains of your career."
 
 The magazine clipping is an undescribed object in the suitcase.
 The description of the magazine clipping is
-"The first article exposing the murder. A tabloid, to be specific. It's sensationalized, because of course it is, but, in all honesty, it was a pretty sensational murder. Quadruple homicide - he killed his spouse, and their two children. Seemingly out of nowhere. How could the tabloids not report on it?"
+"The first article exposing the murder. A tabloid, to be specific. It's sensationalized, because of course it is, but, in all honesty, it was a pretty sensational murder. Triple homicide - he killed his spouse, and their two children. Seemingly out of nowhere. How could the tabloids not report on it?"
 
 The copy of his arrest record is an undescribed object in the suitcase.
 The description of the copy of his arrest procedurals is
@@ -197,7 +210,7 @@ The taxi driver is an undescribed man in the taxi.
 The description of the taxi driver is
 "A middle aged man. Hair receding, permanent frown on his face. Do you think he likes what he does? Or do you think he just does it because it's what he does? Maybe he used to love it. Maybe now it's just a shackle for him....Are you staring into a mirror? But you blink your eyes again and it's just the taxi driver again."
 
-[newspaper tree]
+[day's paper tree]
 
 The day's paper is an undescribed object in the taxi.
 The description of day's paper is
@@ -214,7 +227,7 @@ The description of the taxi window is
 After saying hello to taxi driver:
 	say "The taxi driver turns around for a moment. His eyes meet yours, and he turns back around. Alright then."
 	
-After quizzing taxi driver about anything:
+After quizzing taxi driver about something:
 	say "The taxi driver doesn't even bother to turn around. You guess he's pretending not to hear you. Message received, taxi driver."
 
 [-----------------------------------------------------------------------------------------------]
@@ -223,12 +236,117 @@ After quizzing taxi driver about anything:
 
 The cell is a room.
 The description of the cell is
-"this is as far as i am now lmao. youre going to talk to the serial killer next i promise"
+"[if unvisited]You step deeper into the room as your eyes adjust to the dim lighting. Soon enough, you find yourself able to pick out your surroundings. [end if] Cement walls box you in on three sides. Against one of them is a small wooden bench. Across from the bench, hewn into the remaining fourth wall, are a seemingly endless row of steel bars. Behind them, the prisoner is sitting up with his back against the wall, hands clasped together in his lap. Eyes closed. It's too dark to see anything else. It's just you and him. Just like you wanted."
+
+
+[man tree]
+
+The prisoner is an undescribed man in the cell.
+The description of the man is
+"If you saw him in a crowd of people, you wouldn't have seen him.  You would have seen past him. He would have just been another faceless, nameless member of the mob. No lazy eye, no crooked smile, no unkept hair. Just some slight stubble. Probably because he rarely gets access to a razor. Could have been your neighbor, your cousin, your coworker...[line break][line break] The banality of evil."
+
+[bench tree]
+
+The bench is an undescribed fixed in place supporter in the cell.
+The description of the bench is
+"To call this a bench, in all honesty, would be generous. It's more like three pieces of plywood hastily slapped together and thrown in here. Beats being behind the bars, though."
+
+[walls tree]
+
+The cement walls are an undescribed fixed in place scenery in the cell.
+The description of the cement walls is
+"The rough texture of the cement catches and cradles every bit of moisture that seeps down into this crater of a room. Unpleasant."
+
+[steel bars tree]
+
+The steel bars are an undescribed fixed in place scenery in the cell.
+The description of the steel bars is
+"That which separates the two of you. Well, that, and the due process of the law."
+
+[stairwell tree]
+The stairwell is an undescribed fixed in place scenery in the cell.
+The description of the stairwell is
+"The way in and out. Can't leave here without at least trying to get what you came for."
+
+[CELL ROOM ACTIONS]
+
+[should be able to show man everything in our suitcase, have that lead to further comments]
+[can ask about general subjects like the murder, etc]
+
+[subjects for conversation]
+Himself is a subject.
+His wife is a subject.
+His children is a subject.
+The trial is a subject.
+Prison is a subject.
+Suicide is a subject. Understand "killing himself" as suicide.
+The police is a subject.
+The media is a subject.
+Society is a subject. Understand "the commentary" as society. Understand "the world" as society.
+Why is a subject. Understand "the reason" as why. Understand "his reason" as why. Understand "the point" as why. Understand "his point" as why. Understand "the message" as why. Understand "his message" as why.
+
+[conversation with the man]
+
+After saying hello to the prisoner:
+	say "'Cut the bullshit. Just ask about what you want to know. Get on with it. You're disrupting my tranquility.'[line break][line break]He pauses for a moment. [line break][line break]'No promises that I'll answer everything you ask, though.[line break][line break]You feel a bead of sweat running down your forehead. Calm down. You have your suitcase. You have your materials. You're sobered up. Ask him about himself, show him what you've brought. You're ready for this.'"
+	
+After quizzing the prisoner about himself:
+	say "'You know who I am. Who doesn't at this point? I killed my wife and my two children. I'm in here because of what I did....and I don't regret it. Now, who the fuck are you? Tell me about yourself. It's only fair.'[line break][line break]You explain to the prisoner that you're a horror writer. That you're working on a book. That you have been for a while. And that you're here to get in his head.[line break][line break]'Get inside my head. I see. Well, they'll come pull you out of here eventually. So better start getting in here.'[line break][line break]He unclasps his hands and taps on his temple before returning his hands to his lap."
+	
+After quizzing the prisoner about the trial:
+	say "'The trial? For show. I mean, I admitted to doing it the second I walked in the room!'[line break][line break]He briefly starts chuckling to himself before regaining his composure.[line break][line break]'I had hoped that more people would be interested in why I did what I did. But they didn't. Just that I had done what I had done.'"
+	
+After quizzing the prisoner about prison:
+	say "'It fucking sucks, what do you expect? Been trying to kill myself ever since I got here. That's how I ended up down here. Nothing with which to do it with.'"
+
+After quizzing the prisoner about suicide:
+	say "'You think I want to live in a world without my family? I loved my family. I did what I had to do to prove my point, and no one understood. No one got it. It was all a fucking waste.'"
+
+After quizzing the prisoner about the police:
+	say "'Fucking useless. Couldn't protect anyone if they tried. Trust me, I would know'[line break][line break]He chuckles softly to himself."
+
+After quizzing the prisoner about the media:
+	say "'Isn't the media supposed to be the communication channel for the truth? If so, why wouldn't they publish the truth? The truth about why I did what I did, the message, the commentary about society - that was the whole fucking point!'[line break][line break]For a second, his calm composure slips to reveal his underlying, seething anger. He catches himself, breathes in slowly before returning to sitting silently once again."
+
+After quizzing the prisoner about society:
+	say "'It's all about conformity, right? Like...you're just meant to inevitably become mundane. Get up, work, go home, sleep, do it all over again. Over, and over, and over, and over again. They say that a family is the solution - it wasn't. How could it be, when it's all part of the rut? They'll join the rut too, eventually, and what kind of life is that. Right? It's boring. I was bored. I didn't want them to be bored like me, inevitably.'"
+
+After quizzing the prisoner about his wife:
+	say "'Oh she was lovely. Truly lovely. An incredible woman and the greatest mother any child could ask for. She's definitely happier now. Freed from constraints.'"
+	
+After quizzing the prisoner about his children:
+	say "'...At least now they'll never have to grow up.'"
+
+After quizzing the prisoner about why:
+	say "'That's the million dollar question, right? Why.'"
+
+Before showing something to the prisoner:
+	if the noun is the magazine:
+		say "You inform the prisoner that you've brought a magazine, and ask him to take a look. He opens his eyes and turns his face towards you. He scans the magazine and strokes his stubble.[line break][line break]'Yeah. I remember that a bunch of articles came out during the trial. Most of them were worthless like this one. They focused on what happened. Not why I did it.'[line break][line break]He turns his face back and closes his eyes.";
+	if the noun is the arrest record:
+		say "You inform the prisoner that you've brought a copy of his arrest record, and ask him to take a look. He opens his eyes and turns his face towards you. He glances at the arrest record and turns away again.[line break][line break]'Obviously I was arrested, I called the police myself. That was part of the plan. The media frenzy. Easier to get the message out that way.'";
+	If the noun is the manifesto:
+		say "You inform the prisoner that you've brought a piece of his manifesto, and ask him to take a look. He opens his eyes excitedly and quickly turns to face you.[line break][line break]'You...you read it? You understood it, right? You got what I was going for, right? About how fucked up our world is? About how it breaks people. How this society, this structure we've created, breaks people. Thank God. It wasn't all for nothing. Someone read it...'[line break][line break]He sits back muttering to himself and smiling, repeating that someone read it, until he quiets himself down again and regains his composure.";
+	If the noun is the picture of his family:
+		say "You inform the prisoner that you've brought a picture of his family, and ask him to take a look. He doesn't move.[line break][line break]'I don't want to see. The next time I see them I want it to be when we're all happily together away from here.'";
+	[secret items hehe]
+	If the noun is the polaroid:
+		say "You inform the prisoner that you've brought a polaroid of you and your ex-partner, and ask him to take a look. He obliges.[line break][line break]'She's beautiful. Did you ever think about killing her? Or were you too busy killing yourself over what you thought was more important?'[line break][line break]He seems to expect a response, but when you can't find the words to do so, he just turns away again."
+	If the noun is the newspaper clipping:
+		say "You inform the prisoner that you've brought a newspaper clipping, and ask him to take a look. He obliges.[line break][line break]'Oh. You're failing at your work. Isn't that just such an amazing feeling? Having your worth be tied to what you can create or produce? Expectations are just fantastic, arent they?'[line break][line break]He snickers to himself.[line break][line break]'Or, of course, you could take my route.'";
+	If the noun is the day's paper:
+		say "You inform the prisoner that you've brought the day's paper, and ask him to take a look. He obliges.[line break][line break]'More people freed from the cage by the day, it seems. Although those men will end up in a cage like me for their sacrifice.'"
+		
+Instead of giving something to the prisoner:
+	say "And risk getting arrested yourself? Doesn't seem like a good idea.";
+	stop the action;
+	
+[in the suitcase - magazine, arrest record, manifesto, picture of his family]
+[optional other items - the newspaper clipping, the picture of your family]
 
 [-----------------------------------------------------------------------------------------------]
 
-[maybe once you're with him, you only have a certain amount of time to talk to him - certain number of turns]
-
 [TESTS]
 
-test getToTaxi with "examine clothes / wear suit / take suitcase / s" 
+[test getToTaxi with "examine clothes / wear suit / take suitcase / s".
+test getToPrisoner with "wait / wait / wait / wait / wait / wait".]
