@@ -14,7 +14,7 @@ Include Conversation Framework by Eric Eve.
 Include Epistemology by Eric Eve.
 Include Vorple by Juhana Leinonen.
 
-Release along with cover art ("A cartoon tomato.").
+Release along with cover art ("A fountain pen.").
 
 Release along with the "Vorple" interpreter.
 
@@ -43,6 +43,26 @@ An every turn rule:
 		if timeTracker is 12:
 			say "[line break][line break][line break][line break][line break]'Time's up.'[line break][line break]A voice echoes from the stairwell from which you entered. You follow it back up and out of the cell, where a guard is waiting for you. You walk back through the facility together silently, and out to the entrance, where a taxi is once again waiting for you. This time, you were on time for it. The guard made sure of that.[line break][line break]You enter into the taxi, and once you're settled, the it begins rumbling away towards your apartment. You stare out the taxi window, taking in the city's watercolor design again. Scenes meld and pass, accompanied by the hum of the taxi's wheels against the pavement. It's normalcy remixed. Contorted.[line break][line break]You think to yourself, maybe that's it. The horror is in normalcy, contorted.[line break][line break]Thanks for playing.";
 			end the story;
+
+[-----------------------------------------------------------------------------------------------]
+
+[ON GAME START]
+
+When play begins:
+	say "Content Warning: This game includes mention and discussion of alcoholism/drug abuse, murder, terrorism, domestic abuse, and self harm/suicide.[line break][line break]At any time, enter the HELP command for in game assistance and out of game resources.";
+	choose row 1 in Table of Basic Help Options;
+	now title entry is "Contact Me";
+	now description entry is "Thank you for trying this experience.[line break][line break]If you have any questions, issues, concerns, or comments, please reach out to me at @jdcalvelli on twitter.";
+
+
+[-----------------------------------------------------------------------------------------------]
+
+[HELP TABLE SETUP]
+
+Table of Basic Help Options (continued)
+title    	description
+"Talking to NPCs"	"Start dialogues with NPCs using the 'talk to (npc)' command.[line break][line break]You can 'ask (npc) about (topic)', or even 'show (npc) (object)' that you have in your inventory.[line break][line break]If the NPC has something to say in response to your queries / the object you are attempting to show them, they will respond based on what you have queried them about / will react to what you chose to show them.[line break][line break] Feel free to return to this reference at any time to help you throughout this experience."	
+"References for Out of Game Help"	"Help is available. Speak with someone today.[line break][line break]United States Substance Abuse and Mental Health Services Administration Hotline - 1-800-662-4357[line break][line break]United States Domestic Violence Hotline - 800-799-7233[line break][line break]United States Suicide and Crisis Hotline - 988"
 
 [-----------------------------------------------------------------------------------------------]
 
@@ -331,11 +351,11 @@ Before showing something to the prisoner:
 		say "You inform the prisoner that you've brought a picture of his family, and ask him to take a look. He doesn't move.[line break][line break]'I don't want to see. The next time I see them I want it to be when we're all happily together away from here.'";
 	[secret items hehe]
 	If the noun is the polaroid:
-		say "You inform the prisoner that you've brought a polaroid of you and your ex-partner, and ask him to take a look. He obliges.[line break][line break]'She's beautiful. Did you ever think about killing her? Or were you too busy killing yourself over what you thought was more important?'[line break][line break]He seems to expect a response, but when you can't find the words to do so, he just turns away again."
+		say "You inform the prisoner that you've brought a polaroid of you and your ex-partner, and ask him to take a look. He obliges.[line break][line break]'She's beautiful. Did you ever think about killing her? Or were you too busy killing yourself over what you thought was more important?'[line break][line break]He seems to expect a response, but when you can't find the words to do so, he just turns away again.";
 	If the noun is the newspaper clipping:
 		say "You inform the prisoner that you've brought a newspaper clipping, and ask him to take a look. He obliges.[line break][line break]'Oh. You're failing at your work. Isn't that just such an amazing feeling? Having your worth be tied to what you can create or produce? Expectations are just fantastic, arent they?'[line break][line break]He snickers to himself.[line break][line break]'Or, of course, you could take my route.'";
 	If the noun is the day's paper:
-		say "You inform the prisoner that you've brought the day's paper, and ask him to take a look. He obliges.[line break][line break]'More people freed from the cage by the day, it seems. Although those men will end up in a cage like me for their sacrifice.'"
+		say "You inform the prisoner that you've brought the day's paper, and ask him to take a look. He obliges.[line break][line break]'More people freed from the cage by the day, it seems. Although those men will end up in a cage like me for their sacrifice.'";
 		
 Instead of giving something to the prisoner:
 	say "And risk getting arrested yourself? Doesn't seem like a good idea.";
