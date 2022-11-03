@@ -40,7 +40,7 @@ An every turn rule:
 		increase timeTracker by 1;
 		if timeTracker is 2:
 			say "Without moving, the man calls out to you:[line break][line break]'Well, what do you want to ask me? Your time is already running out. Not that it matters to me.'";
-		if timeTracker is 12:
+		if timeTracker is 20:
 			say "[line break][line break][line break][line break][line break]'Time's up.'[line break][line break]A voice echoes from the stairwell from which you entered. You follow it back up and out of the cell, where a guard is waiting for you. You walk back through the facility together silently, and out to the entrance, where a taxi is once again waiting for you. This time, you were on time for it. The guard made sure of that.[line break][line break]You enter into the taxi, and once you're settled, the it begins rumbling away towards your apartment. You stare out the taxi window, taking in the city's watercolor design again. Scenes meld and pass, accompanied by the hum of the taxi's wheels against the pavement. It's normalcy remixed. Contorted.[line break][line break]You think to yourself, maybe that's it. The horror is in normalcy, contorted.[line break][line break]Thanks for playing.";
 			end the story;
 
@@ -182,11 +182,11 @@ The description of the magazine clipping is
 "The first article exposing the murder. A tabloid, to be specific. It's sensationalized, because of course it is, but, in all honesty, it was a pretty sensational murder. Triple homicide - he killed his spouse, and their two children. Seemingly out of nowhere. How could the tabloids not report on it?"
 
 The copy of his arrest record is an undescribed object in the suitcase.
-The description of the copy of his arrest procedurals is
+The description of the copy of his arrest record is
 "Arrest reports are public domain, so getting your hands on this one wasn't particularly challenging. It was a challenging read, though. The police officers all remarked on how he was completely silent throughout the whole arrest. He never resisted, didn't even need to be handcuffed. He just walked out with them willingly. Some said he was even smiling at points. Fucked up."
 
 The piece of his manifesto are an undescribed object in the suitcase.
-The description of the pieces of his manifesto is
+The description of the piece of his manifesto is
 "It isn't the whole thing, and the piece that you do have is sprawling and nonsensical. You pulled it from his personal blog site, where he released it serially, it seems. Blog is long since gone down now - thank God you had the foresight to save what little you did."
 
 The picture of his family is an undescribed object in the suitcase.
@@ -295,6 +295,9 @@ The description of the stairwell is
 
 [subjects for conversation]
 Himself is a subject.
+Murder is a subject.
+Manifesto is a subject.
+Afterlife is a subject. Understand "the other side" as afterlife. Understand "the better side" as afterlife. Understand "death" as afterlife.
 His wife is a subject.
 His children is a subject.
 The trial is a subject.
@@ -302,7 +305,7 @@ Prison is a subject.
 Suicide is a subject. Understand "killing himself" as suicide.
 The police is a subject.
 The media is a subject.
-Society is a subject. Understand "the commentary" as society. Understand "the world" as society.
+Society is a subject. Understand "the commentary" as society. Understand "the world" as society. Understand "the drudgery" as society.
 Why is a subject. Understand "the reason" as why. Understand "his reason" as why. Understand "the point" as why. Understand "his point" as why. Understand "the message" as why. Understand "his message" as why.
 
 [conversation with the man]
@@ -313,6 +316,12 @@ After saying hello to the prisoner:
 After quizzing the prisoner about himself:
 	say "'You know who I am. Who doesn't at this point? I killed my wife and my two children. I'm in here because of what I did....and I don't regret it. Now, who the fuck are you? Tell me about yourself. It's only fair.'[line break][line break]You explain to the prisoner that you're a horror writer. That you're working on a book. That you have been for a while. And that you're here to get in his head.[line break][line break]'Get inside my head. I see. Well, they'll come pull you out of here eventually. So better start getting in here.'[line break][line break]He unclasps his hands and taps on his temple before returning his hands to his lap."
 	
+After quizzing the prisoner about the murder:
+	say "'What is there to say? I stabbed my wife and children multiple times. I had to hold back tears as they begged me to stop. I called the police on myself after I had finished, gave myself up immediately. Handed them my manifesto and hoped that my message would get out. That my sacrifice would be worth it. Instead, society still operates how it always has, and I'm locked away down here for having tried to kill myself every day to be able to join my family on the better side.'"
+	
+After quizzing the prisoner about the afterlife:
+	say "'It's a place away from all this. From the drudgery. Where you finally get to be happy. My family is there now. I can't wait to be there, too.'";
+
 After quizzing the prisoner about the trial:
 	say "'The trial? For show. I mean, I admitted to doing it the second I walked in the room!'[line break][line break]He briefly starts chuckling to himself before regaining his composure.[line break][line break]'I had hoped that more people would be interested in why I did what I did. But they didn't. Just that I had done what I had done.'"
 	
@@ -338,24 +347,29 @@ After quizzing the prisoner about his children:
 	say "'...At least now they'll never have to grow up.'"
 
 After quizzing the prisoner about why:
-	say "'That's the million dollar question, right? Why.'"
+	say "'That's the million dollar question, right? Why. I explained why in my manifesto. Not that anyone saw it.'";
+	
+After quizzing the prisoner about the manifesto:
+	say "'The fucking media didn't even cover it. After all the work I put in. After all I sacrificed to prove my point. They didn't even bother.'"
 
-Before showing something to the prisoner:
+Instead of showing something to the prisoner:
 	if the noun is the magazine:
 		say "You inform the prisoner that you've brought a magazine, and ask him to take a look. He opens his eyes and turns his face towards you. He scans the magazine and strokes his stubble.[line break][line break]'Yeah. I remember that a bunch of articles came out during the trial. Most of them were worthless like this one. They focused on what happened. Not why I did it.'[line break][line break]He turns his face back and closes his eyes.";
-	if the noun is the arrest record:
+	else if the noun is the arrest record:
 		say "You inform the prisoner that you've brought a copy of his arrest record, and ask him to take a look. He opens his eyes and turns his face towards you. He glances at the arrest record and turns away again.[line break][line break]'Obviously I was arrested, I called the police myself. That was part of the plan. The media frenzy. Easier to get the message out that way.'";
-	If the noun is the manifesto:
+	else if the noun is the manifesto:
 		say "You inform the prisoner that you've brought a piece of his manifesto, and ask him to take a look. He opens his eyes excitedly and quickly turns to face you.[line break][line break]'You...you read it? You understood it, right? You got what I was going for, right? About how fucked up our world is? About how it breaks people. How this society, this structure we've created, breaks people. Thank God. It wasn't all for nothing. Someone read it...'[line break][line break]He sits back muttering to himself and smiling, repeating that someone read it, until he quiets himself down again and regains his composure.";
-	If the noun is the picture of his family:
+	else If the noun is the picture of his family:
 		say "You inform the prisoner that you've brought a picture of his family, and ask him to take a look. He doesn't move.[line break][line break]'I don't want to see. The next time I see them I want it to be when we're all happily together away from here.'";
 	[secret items hehe]
-	If the noun is the polaroid:
+	else if the noun is the polaroid:
 		say "You inform the prisoner that you've brought a polaroid of you and your ex-partner, and ask him to take a look. He obliges.[line break][line break]'She's beautiful. Did you ever think about killing her? Or were you too busy killing yourself over what you thought was more important?'[line break][line break]He seems to expect a response, but when you can't find the words to do so, he just turns away again.";
-	If the noun is the newspaper clipping:
+	else if the noun is the newspaper clipping:
 		say "You inform the prisoner that you've brought a newspaper clipping, and ask him to take a look. He obliges.[line break][line break]'Oh. You're failing at your work. Isn't that just such an amazing feeling? Having your worth be tied to what you can create or produce? Expectations are just fantastic, arent they?'[line break][line break]He snickers to himself.[line break][line break]'Or, of course, you could take my route.'";
-	If the noun is the day's paper:
+	else if the noun is the day's paper:
 		say "You inform the prisoner that you've brought the day's paper, and ask him to take a look. He obliges.[line break][line break]'More people freed from the cage by the day, it seems. Although those men will end up in a cage like me for their sacrifice.'";
+	else:
+		say "The prisoner seems uninterested."
 		
 Instead of giving something to the prisoner:
 	say "And risk getting arrested yourself? Doesn't seem like a good idea.";
